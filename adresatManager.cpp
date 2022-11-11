@@ -113,6 +113,7 @@ void AdresatManager::edytujAdresata() {
     char wybor;
     int idZmienianegoAdresata;
     string zmienianyParametr;
+    Adresat daneZmienianegoAdresata;
 
     cout<<"Podaj id adresata, ktorego chcesz edytowac: "<<endl;
     cin>>idZmienianegoAdresata;
@@ -120,6 +121,7 @@ void AdresatManager::edytujAdresata() {
 
     for (int i=0; i<listaAdresatowDanegoUzytkownika.size(); i++) {
         if (idZmienianegoAdresata==listaAdresatowDanegoUzytkownika[i].pobierzIdAdresata())  {
+              //  daneZmienianegoAdresata.ustawId(idZmienianegoAdresata);
             while (true) {
                 cout << "1. edycja imienia" << endl;
                 cout << "2. edycja nazwiska" << endl;
@@ -135,26 +137,31 @@ void AdresatManager::edytujAdresata() {
                     cin.sync();
                     getline(cin, zmienianyParametr);
                     listaAdresatowDanegoUzytkownika[i].ustawImie(zmienianyParametr);
+                   // daneZmienianegoAdresata.ustawImie(zmienianyParametr);
                 } else if (wybor=='2') {
                     cout<<"Podaj nowe nazwisko: "<<endl;
                     cin.sync();
                     getline(cin, zmienianyParametr);
                     listaAdresatowDanegoUzytkownika[i].ustawNazwisko(zmienianyParametr);
+                   // daneZmienianegoAdresata.ustawNazwisko(zmienianyParametr);
                 } else if (wybor=='3') {
                     cout<<"Podaj nowy adres: "<<endl;
                     cin.sync();
                     getline(cin, zmienianyParametr);
                     listaAdresatowDanegoUzytkownika[i].ustawAdres(zmienianyParametr);
+                   // daneZmienianegoAdresata.ustawAdres(zmienianyParametr);
                 } else if (wybor=='4') {
                     cout<<"Podaj nowy email: "<<endl;
                     cin.sync();
                     getline(cin, zmienianyParametr);
                     listaAdresatowDanegoUzytkownika[i].ustawEmail(zmienianyParametr);
+                   // daneZmienianegoAdresata.ustawEmail(zmienianyParametr);
                 } else if (wybor=='5') {
                     cout<<"Podaj nowy telefon: "<<endl;
                     cin.sync();
                     getline(cin, zmienianyParametr);
                     listaAdresatowDanegoUzytkownika[i].ustawNumerTelefonu(zmienianyParametr);
+                   // daneZmienianegoAdresata.ustawNumerTelefonu(zmienianyParametr);
                 } else if (wybor=='6') {
                     break;
                 } else {
@@ -163,12 +170,11 @@ void AdresatManager::edytujAdresata() {
                 }
             }
             system("cls");
-           //zapis
+           plikZadresatami.zapiszDanePoEdycjiWplikuTymczasowym (listaAdresatowDanegoUzytkownika[i]);
+           plikZadresatami.zamienPlikTymczasowyWdocelowy ();
         }
     }
 
-    plikZadresatami.zapiszDanePoEdycjiWplikuTymczasowym (idZmienianegoAdresata, listaAdresatowDanegoUzytkownika);
-    plikZadresatami.zamienPlikTymczasowyWdocelowy ();
 }
 
 void AdresatManager::usunAdresata() {

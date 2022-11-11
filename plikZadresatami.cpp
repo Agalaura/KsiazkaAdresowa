@@ -147,8 +147,7 @@ void PlikZadresatami::zamienPlikTymczasowyWdocelowy () {
 }
 
 
-void PlikZadresatami::zapiszDanePoEdycjiWplikuTymczasowym (int idZmienianegoAdresata, vector <Adresat> listaAdresatowDanegoUzytkownika) {
-
+void PlikZadresatami::zapiszDanePoEdycjiWplikuTymczasowym (Adresat daneZmienianegoAdresata){
     string calaLinia="";
     string idAdresataTymczasowe="";
     int idAdresata;
@@ -168,19 +167,27 @@ void PlikZadresatami::zapiszDanePoEdycjiWplikuTymczasowym (int idZmienianegoAdre
             idAdresataTymczasowe="";
 
 
-            if (idAdresata!=idZmienianegoAdresata) {
+            if (idAdresata!=daneZmienianegoAdresata.pobierzIdAdresata()) {
                 plikTymczasowy<<calaLinia<<endl;
             } else {
-                cout << idZmienianegoAdresata << endl;
-                system("pause");
-                cout<< listaAdresatowDanegoUzytkownika.size() << endl;
-                system("pause");
-                for (int j=0; j<listaAdresatowDanegoUzytkownika.size(); j++) {
-                   if (listaAdresatowDanegoUzytkownika[j].pobierzIdAdresata()==idZmienianegoAdresata) {
-                        plikTymczasowy<<idZmienianegoAdresata<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzIdUzytkownikaMajacegoDostep()<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzImie()<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzNazwisko()<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzAdres()<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzEmail()<<"|"<<listaAdresatowDanegoUzytkownika[j].pobierzNumerTelefonu()<<"|"<<endl;
-                        break;
-                    }
-                }
+             //   cout << idZmienianegoAdresata << endl;
+              //  system("pause");
+               // cout<< listaAdresatowDanegoUzytkownika.size() << endl;
+               // system("pause");
+              // for (int j=0; j<listaAdresatowDanegoUzytkownika.size(); j++) {
+                   //if (listaAdresatowDanegoUzytkownika[j].pobierzIdAdresata()==idZmienianegoAdresata) {
+                        plikTymczasowy
+                        << daneZmienianegoAdresata.pobierzIdAdresata()
+                        <<"|"<< daneZmienianegoAdresata.pobierzIdUzytkownikaMajacegoDostep()
+                        <<"|"<< daneZmienianegoAdresata.pobierzImie()
+                        <<"|"<< daneZmienianegoAdresata.pobierzNazwisko()
+                        <<"|"<< daneZmienianegoAdresata.pobierzAdres()
+                        <<"|"<< daneZmienianegoAdresata.pobierzEmail()
+                        <<"|"<< daneZmienianegoAdresata.pobierzNumerTelefonu()
+                        <<"|"<< endl;
+
+                    //}
+               // }
             }
         }
         plikZadresami.close();

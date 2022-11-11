@@ -9,23 +9,20 @@
 
 using namespace std;
 
-class PlikZuzytkownikami{
+class PlikZuzytkownikami {
 
- string nazwaPlikuZuzytkownikami; //tutaj Artur chce wprowadzic stala i nazwac ja duzymi literami, ale ja mam blad
- // i u mnie to nie dziala, dlaczego?
-  Uzytkownik buforZdanymiUzytkownikow;
+    string nazwaPlikuZuzytkownikami;
+    Uzytkownik buforZdanymiUzytkownikow;
 
-  public:
+public:
 
     PlikZuzytkownikami(string nazwaPliku) {
         nazwaPlikuZuzytkownikami = nazwaPliku;
     };
 
-  vector <Uzytkownik> wczytajUzytkownikow();
-  void zapiszUzytkownikowWpliku(Uzytkownik daneNowegoUzytkownika); //przekazac albo tlyko dodanego uzytkownika
-  //albo nadpisac caly wektor i przejsc po petli
-  //void zapiszNoweHasloWpliku (string noweHaslo);
-  void zapiszWektorUzytkownikow(vector<Uzytkownik> uzytkownicy);
+    vector <Uzytkownik> wczytajUzytkownikow();
+    void zapiszUzytkownikowWpliku(Uzytkownik daneNowegoUzytkownika);
+    void zapiszWektorUzytkownikow(vector<Uzytkownik> uzytkownicy);
 };
 
 #endif

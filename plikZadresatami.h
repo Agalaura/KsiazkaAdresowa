@@ -28,7 +28,7 @@ public:
     int wczytanieIlosciAdresatowWpliku ();
     vector <Adresat> wczytajAdresatowDanegoUzytkownika(int idZalogowanegoUzytkownika);
     void zapiszDanePoUsunieciuWplikuTymczasowym (int idUsuwanegoAdresata);
-    void zapiszDanePoEdycjiWplikuTymczasowym (int idZmienianegoAdresata, vector <Adresat> listaAdresatowDanegoUzytkownika);
+    void zapiszDanePoEdycjiWplikuTymczasowym (Adresat daneZmienianegoAdresata);
     void zamienPlikTymczasowyWdocelowy ();
 
 };
